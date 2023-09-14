@@ -1,5 +1,5 @@
-import { Field } from "@nestjs/graphql";
-
+import { Field, InputType } from "@nestjs/graphql";
+@InputType()
 export class CreateProjectDto {
   @Field()
 
@@ -7,10 +7,5 @@ export class CreateProjectDto {
   @Field()
 
   description:string
-  @Field()
 
-  startDate:Date
-  @Field()
-
-  endDate:Date
 }

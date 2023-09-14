@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Project } from "./entities/project";
 import { Repository } from "typeorm";
+import { CreateProjectDto } from "./dto/create-project.input";
 
 @Injectable()
 export class ProjectService {
@@ -11,5 +12,11 @@ export class ProjectService {
 
   async findAll() {
     return await this.projectRepository.find()
+  }
+
+  async create(createProjectDto: CreateProjectDto) {
+    const project = this.projectRepository.create(createProjectDto);
+
+    return this.projectRepository.save(project)
   }
 }

@@ -13,11 +13,6 @@ export class Project {
   @Field()
   @Column()
   description:string
-  @Field()
-  @Column()
-  startDate:Date
-  @Field()
-  @Column()
-  endDate:Date
+
 
 }

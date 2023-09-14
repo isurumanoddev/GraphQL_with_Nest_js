@@ -10,12 +10,20 @@ type Employee {
   city: String
 }
 
+type Project {
+  id: String!
+  name: String!
+  description: String!
+}
+
 type Query {
   getAllEmployee: [Employee!]!
+  getAllProjects: [Project!]!
 }
 
 type Mutation {
   createEmployee(employee: CreateEmployeeDto!): Employee!
+  createProject(project: CreateProjectDto!): Project!
 }
 
 input CreateEmployeeDto {
@@ -23,4 +31,9 @@ input CreateEmployeeDto {
   lastName: String
   age: Float
   city: String
+}
+
+input CreateProjectDto {
+  name: String!
+  description: String!
 }
