@@ -3,9 +3,11 @@ import { EmployeeService } from './employee.service';
 import { EmployeeResolver } from './employee.resolver';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Employee } from "./entities/employee";
+import { ProjectModule } from "../project/project.module";
 
 @Module({
-  imports:[TypeOrmModule.forFeature([Employee])],
-  providers: [EmployeeService, EmployeeResolver]
+  imports:[TypeOrmModule.forFeature([Employee]),ProjectModule],
+  providers: [EmployeeService, EmployeeResolver],
+  exports:[EmployeeService]
 })
 export class EmployeeModule {}

@@ -2,22 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Project {
+  id: Int!
+  name: String!
+  description: String!
+  employees: [Employee!]
+}
+
 type Employee {
-  id: String!
+  id: Int!
   firstName: String!
   lastName: String
   age: Float
   city: String
-}
-
-type Project {
-  id: String!
-  name: String!
-  description: String!
+  projectId: String!
+  project: Project!
 }
 
 type Query {
   getAllEmployee: [Employee!]!
+  getEmployeeById(id: Int!): Employee!
   getAllProjects: [Project!]!
 }
 
@@ -31,6 +35,7 @@ input CreateEmployeeDto {
   lastName: String
   age: Float
   city: String
+  projectId: String
 }
 
 input CreateProjectDto {

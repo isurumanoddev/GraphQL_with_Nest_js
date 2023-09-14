@@ -18,7 +18,7 @@ import { Project } from "./project/entities/project";
       port: 3306,
       username: "root",
       password: "root",
-      database: "graphql",
+      database: "t1",
       entities: [Employee,Project],
       synchronize: true
     }),

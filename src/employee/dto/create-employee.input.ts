@@ -1,4 +1,5 @@
 import { Field, InputType } from "@nestjs/graphql";
+
 @InputType()
 export class CreateEmployeeDto {
 
@@ -10,5 +11,7 @@ export class CreateEmployeeDto {
   age: number;
   @Field({ nullable: true })
   city: string;
+  @Field({ nullable: true })
+  projectId: string;
 
 }
