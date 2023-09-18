@@ -25,7 +25,7 @@ export class ProjectResolver {
     return this.projectService.create(project);
   }
 
-  @Mutation(() => Project)
+  @Mutation(() => Project,{name:"updateProject"})
   updateProject(@Args("updateProjectDto")updateProjectDto:UpdateProjectDto) {
     return this.projectService.update(updateProjectDto.id,updateProjectDto)
 

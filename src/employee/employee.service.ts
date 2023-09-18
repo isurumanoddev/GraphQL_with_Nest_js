@@ -5,6 +5,7 @@ import { FindOneOptions, Repository } from "typeorm";
 import { CreateEmployeeDto } from "./dto/create-employee.input";
 import { ProjectService } from "../project/project.service";
 import { Project } from "../project/entities/project";
+import { UpdateEmployeeInput } from "./dto/update-employee.input";
 
 @Injectable()
 export class EmployeeService {
@@ -30,5 +31,12 @@ export class EmployeeService {
 
   async getProject(id: number): Promise<Project> {
     return this.projectService.findProjectById(id)
+  }
+
+  async update(id: number, updateEmployeeInput: UpdateEmployeeInput) {
+    const employee:Employee = this.employeeRepository.create(updateEmployeeInput);
+    employee.id = id;
+    return await this.employeeRepository.save(employee)
+
   }
 }

@@ -3,6 +3,7 @@ import { Employee } from "./entities/employee";
 import { EmployeeService } from "./employee.service";
 import { CreateEmployeeDto } from "./dto/create-employee.input";
 import { Project } from "../project/entities/project";
+import { UpdateEmployeeInput } from "./dto/update-employee.input";
 
 @Resolver(() => Employee)
 export class EmployeeResolver {
@@ -29,6 +30,12 @@ export class EmployeeResolver {
   @ResolveField(() => Project)
   project(@Parent() employee: Employee) {
     return this.employeeService.getProject(employee.projectId);
+  }
+
+  @Mutation(() => Employee, { name: "updateEmployee" })
+  updateEmployee(@Args("updateEmployeeInput") updateEmployeeInput: UpdateEmployeeInput) {
+    return this.employeeService.update(updateEmployeeInput.id,updateEmployeeInput)
+
   }
 
 

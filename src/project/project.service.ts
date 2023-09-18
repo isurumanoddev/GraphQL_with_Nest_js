@@ -21,14 +21,15 @@ export class ProjectService {
 
   async create(createProjectDto: CreateProjectDto) {
     const project = this.projectRepository.create(createProjectDto);
-    console.log(project)
+
     return this.projectRepository.save(project)
   }
 
 
   async update(id: number, updateProjectDto: UpdateProjectDto) {
-    const project = this.projectRepository.create(updateProjectDto);
+    const project:Project = this.projectRepository.create(updateProjectDto);
     project.id = id;
+    console.log(project)
     return this.projectRepository.save(project)
 
   }

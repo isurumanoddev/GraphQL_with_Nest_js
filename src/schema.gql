@@ -28,11 +28,21 @@ type Query {
 
 type Mutation {
   createEmployee(employee: CreateEmployeeDto!): Employee!
+  updateEmployee(updateEmployeeInput: UpdateEmployeeInput!): Employee!
   createProject(project: CreateProjectDto!): Project!
   updateProject(updateProjectDto: UpdateProjectDto!): Project!
 }
 
 input CreateEmployeeDto {
+  firstName: String!
+  lastName: String
+  age: Float
+  city: String
+  projectId: Float
+}
+
+input UpdateEmployeeInput {
+  id: Float!
   firstName: String!
   lastName: String
   age: Float
@@ -46,7 +56,7 @@ input CreateProjectDto {
 }
 
 input UpdateProjectDto {
-  id: Float!
+  id: Int!
   name: String!
   description: String!
 }
