@@ -16,7 +16,7 @@ export class EmployeeResolver {
 
   @Query(() => Employee, { name: "getEmployeeById" })
   findById(@Args('id',{type:()=>Int})  id:number) {
-    return this.employeeService.findOne(id);
+    return this.employeeService.findEmoloyeeById(id);
   }
 
   @Mutation(() =>Employee,{name:"createEmployee"})
