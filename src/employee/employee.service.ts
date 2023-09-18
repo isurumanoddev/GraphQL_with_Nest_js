@@ -17,7 +17,7 @@ export class EmployeeService {
   }
   async findOne(id:number):Promise<Employee | null> {
 
-    return this.employeeRepository.findOne(id)
+    return this.employeeRepository.findOneBy({id})
   }
 
   async create(employeeCreateDto:CreateEmployeeDto) {
