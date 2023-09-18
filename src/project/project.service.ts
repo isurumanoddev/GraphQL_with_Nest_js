@@ -15,8 +15,8 @@ export class ProjectService {
     return await this.projectRepository.find({relations:['employees']})
   }
 
-  async findProjectById(id:any):Promise<Project |null> {
-    return this.projectRepository.findOne(id)
+  async findProjectById(id:number):Promise<Project > {
+    return this.projectRepository.findOneBy({id})
   }
 
   async create(createProjectDto: CreateProjectDto) {
