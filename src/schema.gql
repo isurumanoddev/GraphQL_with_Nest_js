@@ -15,7 +15,7 @@ type Employee {
   lastName: String
   age: Float
   city: String
-  projectId: String!
+  projectId: Float!
   project: Project!
 }
 
@@ -36,7 +36,7 @@ input CreateEmployeeDto {
   lastName: String
   age: Float
   city: String
-  projectId: String
+  projectId: Float
 }
 
 input CreateProjectDto {

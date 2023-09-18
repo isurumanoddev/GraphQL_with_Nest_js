@@ -1,7 +1,8 @@
-import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from "@nestjs/graphql";
 import { Employee } from "./entities/employee";
 import { EmployeeService } from "./employee.service";
 import { CreateEmployeeDto } from "./dto/create-employee.input";
+import { Project } from "../project/entities/project";
 
 @Resolver(() => Employee)
 export class EmployeeResolver {
@@ -15,14 +16,19 @@ export class EmployeeResolver {
   }
 
   @Query(() => Employee, { name: "getEmployeeById" })
-  findById(@Args('id',{type:()=>Int})  id:number) {
+  findById(@Args("id", { type: () => Int }) id: number) {
     return this.employeeService.findEmoloyeeById(id);
   }
 
-  @Mutation(() =>Employee,{name:"createEmployee"})
+  @Mutation(() => Employee, { name: "createEmployee" })
   create(@Args("employee") employee: CreateEmployeeDto) {
 
-    return  this.employeeService.create(employee);
+    return this.employeeService.create(employee);
+  }
+
+  @ResolveField(() => Project)
+  project(@Parent() employee: Employee) {
+    return this.employeeService.getProject(employee.projectId);
   }
 
 

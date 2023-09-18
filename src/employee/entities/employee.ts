@@ -23,7 +23,7 @@ export class Employee {
 
   @Field({ nullable: false })
   @Column()
-  projectId: string;
+  projectId: number;
 
   @ManyToOne(() => Project, project => project.employees)
   @Field(()=>Project,{nullable:false})
