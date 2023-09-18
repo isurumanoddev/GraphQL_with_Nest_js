@@ -27,8 +27,9 @@ export class ProjectService {
 
 
   async update(id: number, updateProjectDto: UpdateProjectDto) {
-    const project =await this.findProjectById(id);
-    console.log("project ",project)
-    // return this.projectRepository.update(project, { ...updateProjectDto } );
+    const project = this.projectRepository.create(updateProjectDto);
+    project.id = id;
+    return this.projectRepository.save(project)
+
   }
 }
