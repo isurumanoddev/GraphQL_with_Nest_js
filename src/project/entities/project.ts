@@ -7,7 +7,7 @@ import { Employee } from "../../employee/entities/employee";
 export class Project {
   @Field(type =>Int)
   @PrimaryGeneratedColumn()
-  id:string
+  id:number
   @Field()
   @Column()
   name:string

@@ -23,11 +23,13 @@ type Query {
   getAllEmployee: [Employee!]!
   getEmployeeById(id: Int!): Employee!
   getAllProjects: [Project!]!
+  getProjectById(id: Int!): Project!
 }
 
 type Mutation {
   createEmployee(employee: CreateEmployeeDto!): Employee!
   createProject(project: CreateProjectDto!): Project!
+  updateProject(project: Int!): Project!
 }
 
 input CreateEmployeeDto {
