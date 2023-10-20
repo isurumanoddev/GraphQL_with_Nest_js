@@ -17,6 +17,11 @@ export class EmployeeService {
         return this.employeeRepository.find({relations:['project']})
     }
 
+    async findEmoloyeeById(id:number):Promise<Employee |null> {
+        return this.employeeRepository.findOneBy({ id })
+    }
+
+
 
 
 }
