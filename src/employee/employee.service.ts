@@ -21,6 +21,14 @@ export class EmployeeService {
         return this.employeeRepository.findOneBy({ id })
     }
 
+    async create(employeeCreateDto:CreateEmployeeDto) {
+        const employee = this.employeeRepository.create(employeeCreateDto);
+        console.log("employeeCreateDto",employeeCreateDto)
+
+        return await this.employeeRepository.save(employee)
+
+    }
+
 
 
 
