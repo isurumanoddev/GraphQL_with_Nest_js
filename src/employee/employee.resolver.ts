@@ -26,5 +26,10 @@ export class EmployeeResolver {
     return this.employeeService.create(employee);
   }
 
+  @ResolveField(() => Project)
+  project(@Parent() employee: Employee) {
+    return this.employeeService.getProject(employee.projectId);
+  }
+
 
 }
