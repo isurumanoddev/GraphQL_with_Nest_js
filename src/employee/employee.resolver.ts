@@ -20,4 +20,11 @@ export class EmployeeResolver {
   }
 
 
+  @Mutation(() => Employee, { name: "createEmployee" })
+  create(@Args("employee") employee: CreateEmployeeDto) {
+
+    return this.employeeService.create(employee);
+  }
+
+
 }
