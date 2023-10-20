@@ -13,7 +13,9 @@ export class EmployeeService {
                 private projectService: ProjectService
     ) {
     }
-
+    async findAll() {
+        return this.employeeRepository.find({relations:['project']})
+    }
 
 
 
