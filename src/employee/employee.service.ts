@@ -9,7 +9,10 @@ import { UpdateEmployeeInput } from "./dto/update-employee.input";
 
 @Injectable()
 export class EmployeeService {
-
+    constructor(@InjectRepository(Employee) private employeeRepository: Repository<Employee>,
+                private projectService: ProjectService
+    ) {
+    }
 
 
 
