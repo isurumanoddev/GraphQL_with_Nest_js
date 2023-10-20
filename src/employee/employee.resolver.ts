@@ -32,4 +32,11 @@ export class EmployeeResolver {
   }
 
 
+  @Mutation(() => Employee, { name: "updateEmployee" })
+  updateEmployee(@Args("updateEmployeeInput") updateEmployeeInput: UpdateEmployeeInput) {
+    return this.employeeService.update(updateEmployeeInput.id,updateEmployeeInput)
+
+  }
+
+
 }
