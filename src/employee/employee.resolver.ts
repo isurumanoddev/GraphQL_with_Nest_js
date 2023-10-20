@@ -7,6 +7,8 @@ import { UpdateEmployeeInput } from "./dto/update-employee.input";
 
 @Resolver(() => Employee)
 export class EmployeeResolver {
+  constructor(private employeeService: EmployeeService) {
+  }
 
 
 }
