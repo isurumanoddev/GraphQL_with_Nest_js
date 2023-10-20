@@ -9,6 +9,10 @@ import { UpdateEmployeeInput } from "./dto/update-employee.input";
 export class EmployeeResolver {
   constructor(private employeeService: EmployeeService) {
   }
+  @Query(() => [Employee], { name: "getAllEmployee" })
+  findAll(): Promise<Employee[]> {
+    return this.employeeService.findAll();
+  }
 
 
 }
