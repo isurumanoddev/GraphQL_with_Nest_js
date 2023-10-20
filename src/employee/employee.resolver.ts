@@ -14,5 +14,10 @@ export class EmployeeResolver {
     return this.employeeService.findAll();
   }
 
+  @Query(() => Employee, { name: "getEmployeeById" })
+  findById(@Args("id", { type: () => Int }) id: number) {
+    return this.employeeService.findEmoloyeeById(id);
+  }
+
 
 }
