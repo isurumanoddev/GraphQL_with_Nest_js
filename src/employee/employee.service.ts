@@ -29,6 +29,11 @@ export class EmployeeService {
 
     }
 
+    async getProject(id: number): Promise<Project> {
+        return this.projectService.findProjectById(id)
+    }
+
+
 
 
 
